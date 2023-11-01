@@ -8,11 +8,14 @@
 
     </head>
     <body class="antialiased">
-        <h1>{{$item->name}}</h1>
-        <form action="/items/{{$item->id}}/update" method="post">
+        <h1>{{$cat->name}}</h1>
+        <p>{{$cat -> description}}</p>
+        <form action="/category/{{$cat->id}}/update" method="post">
             @csrf
             <p>name</p>
-            <input type="text" name="name" placeholder="name" value="{{$item->name}}" id="name">
+            <input type="text" name="name" placeholder="name" value="{{$cat->name}}" id="name">
+            <p>desc</p>
+            <input type="text" name="desc" placeholder="desc" value="{{$cat->description}}" id="desc">
             <input type="submit" value="Изменить">
         </form>
     </body>

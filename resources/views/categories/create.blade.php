@@ -8,8 +8,11 @@
 
     </head>
     <body class="antialiased">
-        <h1>Hi</h1>
-        <p><a href="/items">items</a></p>
-        <p><a href="/categories">categories</a></p>
+        <form action="/category/store" method="post">
+            @csrf
+            <input type="text" name="name" placeholder="name">
+            <input type="text" name="desc" placeholder="desc">
+            <input type="submit" value="Создать">
+        </form>
     </body>
 </html>

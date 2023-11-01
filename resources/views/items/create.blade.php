@@ -8,7 +8,7 @@
 
     </head>
     <body class="antialiased">
-        <form action="/item/new" method="post">
+        <form action="/items/store" method="post">
             @csrf
             <input type="text" name="name" placeholder="name">
             <input type="submit" value="Создать">

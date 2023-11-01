@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ItemsController;
+use App\Http\Controllers\CategoriesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,14 +19,29 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+//items
 Route::get("/items", [ItemsController::class, 'index']);
 
-Route::post('/items/delete/{id}', [ItemsController::class, 'delete']);
+Route::post('/items/{id}/delete', [ItemsController::class, 'destroy']);
 
-Route::get('/items/edit/{id}', [ItemsController::class, 'edit']);
+Route::get('/items/{id}/edit', [ItemsController::class, 'edit']);
 
-Route::post('/item/update/{id}', [ItemsController::class, 'update']);
+Route::post('/items/{id}/update', [ItemsController::class, 'update']);
 
-Route::get('/item/create', [ItemsController::class, 'create']);
+Route::get('/items/create', [ItemsController::class, 'create']);
 
-Route::post('/item/new', [ItemsController::class, 'new']);
+Route::post('/items/store', [ItemsController::class, 'store']);
+
+//categories
+
+Route::get('/categories', [CategoriesController::class, 'index']);
+
+Route::post('/category/{id}/delete', [CategoriesController::class, 'destroy']);
+
+Route::get('/category/{id}/edit', [CategoriesController::class, 'edit']);
+
+Route::post('/category/{id}/update', [CategoriesController::class, 'update']);
+
+Route::get('/category/create', [CategoriesController::class, 'create']);
+
+Route::post('/category/store', [CategoriesController::class, 'store']);
