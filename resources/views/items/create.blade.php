@@ -8,7 +8,10 @@
 
     </head>
     <body class="antialiased">
-        <h1>Hi</h1>
-        <a href="/items">items</a>
+        <form action="/item/new" method="post">
+            @csrf
+            <input type="text" name="name" placeholder="name">
+            <input type="submit" value="Создать">
+        </form>
     </body>
 </html>
