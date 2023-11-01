@@ -21,7 +21,7 @@ class ItemsController extends Controller
         return redirect('/items');
     }
 
-    public function edit(Request $reques) {
+    public function edit(Request $request) {
         $item = Items::find($request->route('id'));
         return view('items.edit', [
             'item' => $item,
