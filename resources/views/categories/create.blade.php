@@ -8,7 +8,7 @@
 
     </head>
     <body class="antialiased">
-        <form action="/category/store" method="post">
+        <form action="/categories/store" method="post">
             @csrf
             <input type="text" name="name" placeholder="name">
             <input type="text" name="desc" placeholder="desc">

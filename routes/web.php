@@ -36,12 +36,12 @@ Route::post('/items/store', [ItemsController::class, 'store']);
 
 Route::get('/categories', [CategoriesController::class, 'index']);
 
-Route::post('/category/{id}/delete', [CategoriesController::class, 'destroy']);
+Route::post('/categories/{id}/delete', [CategoriesController::class, 'destroy']);
 
-Route::get('/category/{id}/edit', [CategoriesController::class, 'edit']);
+Route::get('/categories/{id}/edit', [CategoriesController::class, 'edit']);
 
-Route::post('/category/{id}/update', [CategoriesController::class, 'update']);
+Route::post('/categories/{id}/update', [CategoriesController::class, 'update']);
 
-Route::get('/category/create', [CategoriesController::class, 'create']);
+Route::get('/categories/create', [CategoriesController::class, 'create']);
 
-Route::post('/category/store', [CategoriesController::class, 'store']);
+Route::post('/categories/store', [CategoriesController::class, 'store']);

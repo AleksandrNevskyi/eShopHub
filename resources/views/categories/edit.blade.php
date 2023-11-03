@@ -10,7 +10,7 @@
     <body class="antialiased">
         <h1>{{$cat->name}}</h1>
         <p>{{$cat -> description}}</p>
-        <form action="/category/{{$cat->id}}/update" method="post">
+        <form action="/categories/{{$cat->id}}/update" method="post">
             @csrf
             <p>name</p>
             <input type="text" name="name" placeholder="name" value="{{$cat->name}}" id="name">

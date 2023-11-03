@@ -10,7 +10,14 @@
     <body class="antialiased">
         <form action="/items/store" method="post">
             @csrf
-            <input type="text" name="name" placeholder="name">
+            <p>name
+            <input type="text" name="name" placeholder="name"></p>
+            <p>category
+            <select name="cat_id">
+                @foreach ($categories as $item)
+                    <option value="{{$item->id}}">{{$item->name}}</option>
+                @endforeach
+            </select></p>
             <input type="submit" value="Создать">
         </form>
     </body>

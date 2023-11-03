@@ -8,13 +8,13 @@
 
     </head>
     <body class="antialiased">
-        <a href="/category/create">create</a>
+        <a href="/categories/create">create</a>
         @if ($cats -> count())
             <ul>
                 @foreach ($cats as $item)
                     <li>
-                        <h2><a href="/category/{{$item -> id}}/edit">{{$item -> name}}</a></h2>
-                        <form action="/category/{{$item -> id}}/delete" method="post">
+                        <h2><a href="/categories/{{$item -> id}}/edit">{{$item -> name}}</a></h2>
+                        <form action="/categories/{{$item -> id}}/delete" method="post">
                             @csrf
                             <input type="submit" value="Удалить">
                         </form>

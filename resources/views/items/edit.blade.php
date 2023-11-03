@@ -9,10 +9,19 @@
     </head>
     <body class="antialiased">
         <h1>{{$item->name}}</h1>
+        <h2>{{$category->name}}</h2>
+        <p>{{$category->description}}</p>
+        
         <form action="/items/{{$item->id}}/update" method="post">
             @csrf
-            <p>name</p>
-            <input type="text" name="name" placeholder="name" value="{{$item->name}}" id="name">
+            <p>name
+            <input type="text" name="name" placeholder="name" value="{{$item->name}}" id="name"></p>
+            <p>category
+                <select name="cat_id">
+                    @foreach ($categories as $item)
+                        <option value="{{$item->id}}">{{$item->name}}</option>
+                    @endforeach
+            </select></p>
             <input type="submit" value="Изменить">
         </form>
     </body>

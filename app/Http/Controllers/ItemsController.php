@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Item;
+use App\Models\Category;
 use Illuminate\Http\RedirectResponse;
 use Carbon\Carbon;
 
@@ -23,25 +24,37 @@ class ItemsController extends Controller
 
     public function edit(Request $request, string $id) {
         $item = Item::find($id);
+        $cat = Category::find($item->category_id);
+        $cats = Category::all();
         return view('items.edit', [
             'item' => $item,
+            'category' => $cat,
+            'categories' => $cats
         ]);
     }
 
-    public function update(Request $request, string $id) {
+   public function update(Request $request, string $id) {
+        /*$validated = $request->validate([
+            'name'    
+        ]); */        
         Item::find($id) -> update([
             'name' => $request -> name,
+            'category_id' => $request -> cat_id  
         ]);
         return redirect('/items');
     }
 
     public function create() {
-        return view('items.create');
+        $cats = Category::all();
+        return view('items.create', [
+            'categories' => $cats    
+        ]);
     }
 
     public function store(Request $req) {
         Item::create([
-            'name' => $req -> name    
+            'name' => $req -> name,
+            'category_id' => $req -> cat_id    
         ]);
         return redirect('/items');
     }
