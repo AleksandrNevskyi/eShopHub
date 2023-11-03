@@ -34,9 +34,9 @@ class ItemsController extends Controller
     }
 
    public function update(Request $request, string $id) {
-        /*$validated = $request->validate([
-            'name'    
-        ]); */        
+        $validated = $request->validate([
+            'name' => 'required',
+        ]);        
         Item::find($id) -> update([
             'name' => $request -> name,
             'category_id' => $request -> cat_id  
@@ -52,6 +52,9 @@ class ItemsController extends Controller
     }
 
     public function store(Request $req) {
+        $validated = $req->validate([
+            'name' => 'required',
+        ]); 
         Item::create([
             'name' => $req -> name,
             'category_id' => $req -> cat_id    

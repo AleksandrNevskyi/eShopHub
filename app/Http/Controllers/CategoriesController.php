@@ -27,6 +27,10 @@ class CategoriesController extends Controller
     }
 
     public function update(Request $req, string $id){
+        $validated = $req->validate([
+            'name' => 'required',
+            'desc' => 'required'
+        ]); 
         Category::find($id) -> update([
             'name' => $req -> name,
             'description' => $req -> desc,
@@ -39,6 +43,10 @@ class CategoriesController extends Controller
     }
 
     public function store(Request $req) {
+        $validated = $req->validate([
+            'name' => 'required',
+            'desc' => 'required'
+        ]); 
         Category::create([
             'name' => $req -> name,
             'description' => $req -> desc
