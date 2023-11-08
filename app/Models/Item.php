@@ -7,9 +7,19 @@ use Illuminate\Database\Eloquent\Model;
 
 class Item extends Model
 {
-    use HasFactory;
+	use HasFactory;
+
     protected $fillable = [
         'name',
         'category_id'
     ];
+
+    public function category()
+    {
+	    return $this->belongsTo(Category::class);
+    }
+
+    public function location(){
+        return $this->belongsToMany(Location::class);
+    }
 }

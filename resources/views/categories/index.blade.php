@@ -13,7 +13,10 @@
             <ul>
                 @foreach ($cats as $item)
                     <li>
-                        <h2><a href="/categories/{{$item -> id}}/edit">{{$item -> name}}</a></h2>
+			            <h2><a href="/categories/{{$item->id}}/edit">{{$item->name}}</a></h2>
+                        @foreach ($item->items as $i)
+                            <p>{{ $i->name }}</p>
+                        @endforeach
                         <form action="/categories/{{$item -> id}}/delete" method="post">
                             @csrf
                             <input type="submit" value="Удалить">
