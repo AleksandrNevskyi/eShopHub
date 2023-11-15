@@ -18,6 +18,13 @@
                     <option value="{{$item->id}}">{{$item->name}}</option>
                 @endforeach
             </select></p>
+            <p>locations
+            @if ($locations->count())
+                @foreach ($locations as $item)
+                    <label for="{{$item->title}}">{{$item->title}}</label>
+                    <input type="checkbox" name="{{$item->title}}" id="{{$item->title}}">
+                @endforeach
+            @endif
             <input type="submit" value="Создать">
         </form>
     </body>

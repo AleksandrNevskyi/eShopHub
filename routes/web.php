@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ItemsController;
 use App\Http\Controllers\CategoriesController;
+use App\Http\Controllers\LocationsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -45,3 +46,17 @@ Route::post('/categories/{id}/update', [CategoriesController::class, 'update']);
 Route::get('/categories/create', [CategoriesController::class, 'create']);
 
 Route::post('/categories/store', [CategoriesController::class, 'store']);
+
+//locations
+
+Route::get('/locations', [LocationsController::class, 'index']);
+
+Route::post('/locations/{id}/delete', [LocationsController::class, 'destroy']);
+
+Route::get('/locations/{id}/edit', [LocationsController::class, 'edit']);
+
+Route::post('/locations/{id}/update', [LocationsController::class, 'update']);
+
+Route::get('/locations/create', [LocationsController::class, 'create']);
+
+Route::post('/locations/store', [LocationsController::class, 'store']);

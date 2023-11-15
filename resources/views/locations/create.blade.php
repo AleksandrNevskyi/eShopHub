@@ -8,16 +8,10 @@
 
     </head>
     <body class="antialiased">
-        <form action="/items/store" method="post">
+        <form action="/locations/store" method="post">
             @csrf
-            <p>name
-            <input type="text" name="name" placeholder="name"></p>
-            <p>category
-            <select name="cat_id">
-                @foreach ($categories as $item)
-                    <option value="{{$item->id}}">{{$item->name}}</option>
-                @endforeach
-            </select></p>
+            <input type="text" name="name" placeholder="name">
+            <input type="text" name="desc" placeholder="desc">
             <input type="submit" value="Создать">
         </form>
     </body>

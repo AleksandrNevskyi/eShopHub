@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Item;
 use App\Models\Category;
+use App\Models\Location;
+use App\Models\Location_item;
 use Illuminate\Http\RedirectResponse;
 use Carbon\Carbon;
 
@@ -13,7 +15,7 @@ class ItemsController extends Controller
     public function index() {
         $items = Item::all();
         return view("items.index", [
-            'items' => $items
+            'items' => $items,
         ]);
     }
 
@@ -46,8 +48,10 @@ class ItemsController extends Controller
 
     public function create() {
         $cats = Category::all();
+        $locations = Location::all();
         return view('items.create', [
-            'categories' => $cats    
+            'categories' => $cats,
+            'locations' => $locations    
         ]);
     }
 
