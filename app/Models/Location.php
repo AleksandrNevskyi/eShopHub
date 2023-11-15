@@ -14,7 +14,7 @@ class Location extends Model
         'desc'
     ];
 
-    public function item(){
+    public function items() {
         return $this->belongsToMany(Item::class);
     }
 }

@@ -31,7 +31,7 @@ class CategoriesController extends Controller
             'name' => 'required',
             'desc' => 'required'
         ]); 
-        Category::find($id) -> update([
+        Category::find($id)->update([
             'name' => $req -> name,
             'description' => $req -> desc,
         ]);

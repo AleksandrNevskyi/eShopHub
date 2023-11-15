@@ -21,10 +21,12 @@
             <p>locations
             @if ($locations->count())
                 @foreach ($locations as $item)
-                    <label for="{{$item->title}}">{{$item->title}}</label>
-                    <input type="checkbox" name="{{$item->title}}" id="{{$item->title}}">
+                    <label for="{{$item->id}}">{{$item->title}}</label>
+                    <input type="checkbox" name="item_location[{{ $item->id }}]" id="{{$item->id}}">
                 @endforeach
             @endif
+
+            
             <input type="submit" value="Создать">
         </form>
     </body>

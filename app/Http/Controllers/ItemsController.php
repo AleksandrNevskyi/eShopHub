@@ -59,10 +59,14 @@ class ItemsController extends Controller
         $validated = $req->validate([
             'name' => 'required',
         ]); 
-        Item::create([
+        $item = Item::create([
             'name' => $req -> name,
             'category_id' => $req -> cat_id    
         ]);
+        dd($req->item_location);
+        foreach ($req->item_location as $items)
+            $item->locations()->attach($items);
+
         return redirect('/items');
     }
 }
