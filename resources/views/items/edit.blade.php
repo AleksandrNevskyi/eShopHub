@@ -22,6 +22,9 @@
                         <option value="{{$item->id}}">{{$item->name}}</option>
                     @endforeach
             </select></p>
+            @foreach ($item as $item)
+                <p>{{ $item->locations->title }}</p>
+            @endforeach
             <input type="submit" value="Изменить">
         </form>
     </body>

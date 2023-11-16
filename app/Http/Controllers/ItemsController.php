@@ -28,6 +28,7 @@ class ItemsController extends Controller
         $item = Item::find($id);
         $cat = Category::find($item->category_id);
         $cats = Category::all();
+        // dd($item);
         return view('items.edit', [
             'item' => $item,
             'category' => $cat,
@@ -63,9 +64,8 @@ class ItemsController extends Controller
             'name' => $req -> name,
             'category_id' => $req -> cat_id    
         ]);
-        dd($req->item_location);
-        foreach ($req->item_location as $items)
-            $item->locations()->attach($items);
+        // dd($req->item_location);
+        $item->locations()->attach($req->item_location);
 
         return redirect('/items');
     }
