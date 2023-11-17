@@ -13,6 +13,7 @@
         <p><a href="/categories">categories</a></p>
         <p><a href="/locations">locations</a></p>
         <p><a href="/attributes">attributes</a></p>
+        <p><a href="/features">features</a></p>
         <p><a href="/attribute_values">attrribute_values</a></p>
     </body>
 </html>

@@ -6,6 +6,7 @@ use App\Http\Controllers\CategoriesController;
 use App\Http\Controllers\LocationsController;
 use App\Http\Controllers\AttributesController;
 use App\Http\Controllers\Attribute_ValuesController;
+use App\Http\Controllers\FeaturesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -76,6 +77,20 @@ Route::post('/attributes/{id}/update', [AttributesController::class, 'update']);
 Route::get('/attributes/create', [AttributesController::class, 'create']);
 
 Route::post('/attributes/store', [AttributesController::class, 'store']);
+
+//features
+
+Route::get('/features', [FeaturesController::class, 'index']);
+
+Route::post('/features/{id}/delete', [FeaturesController::class, 'destroy']);
+
+Route::get('/features/{id}/edit', [FeaturesController::class, 'edit']);
+
+Route::post('/features/{id}/update', [FeaturesController::class, 'update']);
+
+Route::get('/features/create', [FeaturesController::class, 'create']);
+
+Route::post('/features/store', [FeaturesController::class, 'store']);
 
 //attribute_values
 
