@@ -9,22 +9,35 @@
     </head>
     <body class="antialiased">
         <h1>{{$item->name}}</h1>
-        <h2>{{$category->name}}</h2>
-        <p>{{$category->description}}</p>
+        <h2>Категория</h2>
+        <h3>{{$category->name}}</h2>
+	    <p>{{$category->description}}</p>
+        <h2>Локации</h2>
+        @foreach ($item->locations as $location)
+            <p>{{ $location->title }}</p>
+        @endforeach
+
         
         <form action="/items/{{$item->id}}/update" method="post">
             @csrf
             <p>name
             <input type="text" name="name" placeholder="name" value="{{$item->name}}" id="name"></p>
-            <p>category
+            <p>
+                category
                 <select name="cat_id">
-                    @foreach ($categories as $item)
-                        <option value="{{$item->id}}">{{$item->name}}</option>
+                    @foreach ($categories as $category)
+                        <option value="{{$category->id}}">{{$category->name}}</option>
                     @endforeach
-            </select></p>
-            @foreach ($item as $item)
-                <p>{{ $item->locations->title }}</p>
-            @endforeach
+	            </select>
+            </p>
+            <p>
+                <p>locations</p>
+                @foreach ($locations as $location)
+                    <label for="{{$location->id}}">{{$location->title}}</label>
+                    <input @if ($item->locations()->pluck('id')->contains($location->id)) checked @endif type="checkbox" name="item_location[{{ $location->id }}]" id="{{$location->id}}">
+                @endforeach 
+            </p>
+
             <input type="submit" value="Изменить">
         </form>
     </body>

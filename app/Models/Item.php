@@ -19,7 +19,7 @@ class Item extends Model
 	    return $this->belongsTo(Category::class);
     }
 
-    public function locations (){
-        return $this->belongsToMany(Location::class);
+    public function locations() {
+        return $this->belongsToMany(Location::class, 'item_location');
     }
 }

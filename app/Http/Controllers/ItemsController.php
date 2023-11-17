@@ -6,7 +6,6 @@ use Illuminate\Http\Request;
 use App\Models\Item;
 use App\Models\Category;
 use App\Models\Location;
-use App\Models\Location_item;
 use Illuminate\Http\RedirectResponse;
 use Carbon\Carbon;
 
@@ -28,15 +27,19 @@ class ItemsController extends Controller
         $item = Item::find($id);
         $cat = Category::find($item->category_id);
         $cats = Category::all();
+	$locations = Location::all();
+
         // dd($item);
         return view('items.edit', [
             'item' => $item,
             'category' => $cat,
-            'categories' => $cats
+            'categories' => $cats,
+            'locations' => $locations
         ]);
     }
 
    public function update(Request $request, string $id) {
+    //    dd($request -> cat_id);
         $validated = $request->validate([
             'name' => 'required',
         ]);        
@@ -44,6 +47,9 @@ class ItemsController extends Controller
             'name' => $request -> name,
             'category_id' => $request -> cat_id  
         ]);
+        $item = Item::find($id);
+
+        $item->locations()->sync(array_keys($request->item_location));
         return redirect('/items');
     }
 
@@ -65,7 +71,7 @@ class ItemsController extends Controller
             'category_id' => $req -> cat_id    
         ]);
         // dd($req->item_location);
-        $item->locations()->attach($req->item_location);
+        $item->locations()->attach(array_keys($req->item_location));
 
         return redirect('/items');
     }

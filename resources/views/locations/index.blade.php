@@ -14,11 +14,10 @@
                 @foreach ($locations as $item)
                     <li>
 			            <h2><a href="/locations/{{$item->id}}/edit">{{$item->title}}</a></h2>
-                        {{-- @if ($item->item->count())
-                            @foreach ($item->items as $i)
-                                <p>{{ $i->title }}</p>
-                            @endforeach
-                        @endif --}}
+
+                        @foreach ($item->items as $items)
+                            <p>{{$items->name}}</p>
+                        @endforeach
                         <form action="/locations/{{$item -> id}}/delete" method="post">
                             @csrf
                             <input type="submit" value="Удалить">
