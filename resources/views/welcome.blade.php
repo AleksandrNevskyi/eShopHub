@@ -12,5 +12,6 @@
         <p><a href="/items">items</a></p>
         <p><a href="/categories">categories</a></p>
         <p><a href="/locations">locations<locations/a></p>
+        <p><a href="/attributes">attributes</a></p>
     </body>
 </html>

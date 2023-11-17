@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ItemsController;
 use App\Http\Controllers\CategoriesController;
 use App\Http\Controllers\LocationsController;
+use App\Http\Controllers\AttributesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -60,3 +61,17 @@ Route::post('/locations/{id}/update', [LocationsController::class, 'update']);
 Route::get('/locations/create', [LocationsController::class, 'create']);
 
 Route::post('/locations/store', [LocationsController::class, 'store']);
+
+//attributes
+
+Route::get('/attributes', [AttributesController::class, 'index']);
+
+Route::post('/attributes/{id}/delete', [AttributesController::class, 'destroy']);
+
+Route::get('/attributes/{id}/edit', [AttributesController::class, 'edit']);
+
+Route::post('/attributes/{id}/update', [AttributesController::class, 'update']);
+
+Route::get('/attributes/create', [AttributesController::class, 'create']);
+
+Route::post('/attributes/store', [AttributesController::class, 'store']);
