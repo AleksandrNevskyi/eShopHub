@@ -8,10 +8,17 @@
 
     </head>
     <body class="antialiased">
-        <form action="/attributes/store" method="post">
+        <form action="/attribute_values/store" method="post">
             @csrf
             <p>name</p>
             <input type="text" placeholder="name" name="name">
+            <p>
+                <select name="attribute">
+                    @foreach ($attributes as $item)
+                        <option value="{{$item->id}}">{{$item->name}}</option>
+                    @endforeach
+                </select>
+            </p>
             <input type="submit" value="create">
         </form>
     </body>

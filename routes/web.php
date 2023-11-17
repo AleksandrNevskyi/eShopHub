@@ -5,6 +5,7 @@ use App\Http\Controllers\ItemsController;
 use App\Http\Controllers\CategoriesController;
 use App\Http\Controllers\LocationsController;
 use App\Http\Controllers\AttributesController;
+use App\Http\Controllers\Attribute_ValuesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -75,3 +76,17 @@ Route::post('/attributes/{id}/update', [AttributesController::class, 'update']);
 Route::get('/attributes/create', [AttributesController::class, 'create']);
 
 Route::post('/attributes/store', [AttributesController::class, 'store']);
+
+//attribute_values
+
+Route::get('/attribute_values', [Attribute_ValuesController::class, 'index']);
+
+Route::post('/attribute_values/{id}/delete', [Attribute_ValuesController::class, 'destroy']);
+
+Route::get('/attribute_values/{id}/edit', [Attribute_ValuesController::class, 'edit']);
+
+Route::post('/attribute_values/{id}/update', [Attribute_ValuesController::class, 'update']);
+
+Route::get('/attribute_values/create', [Attribute_ValuesController::class, 'create']);
+
+Route::post('/attribute_values/store', [Attribute_ValuesController::class, 'store']);

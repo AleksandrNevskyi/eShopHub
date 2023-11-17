@@ -67,7 +67,7 @@ class ItemsController extends Controller
             'name' => 'required',
         ]); 
         $item = Item::create([
-            'name' => $req -> name,
+            'name' => $req -> name, 
             'category_id' => $req -> cat_id    
         ]);
         // dd($req->item_location);

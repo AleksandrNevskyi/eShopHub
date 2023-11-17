@@ -35,4 +35,18 @@ class AttributesController extends Controller
         ]);
         return redirect('/attributes');
     }
+
+    public function create(){
+        return view('attributes.create');
+    }
+
+    public function store(Request $req) {
+        $validated = $req->validate([
+            'name' => 'required'
+        ]); 
+        Attribute::create([
+            'name' => $req -> name
+        ]);
+        return redirect('/attributes');
+    }
 }

@@ -8,17 +8,17 @@
 
     </head>
     <body class="antialiased">
-        <p><a href="/attributes/create">create</a></p>
-       @if ($attributes->count())
-            @foreach ($attributes as $item) 
+        <p><a href="/attribute_values/create">create</a></p>
+        @if ($values->count())
+            @foreach ($values as $item)
                 <div>
-                    <h2><a href="/attributes/{{$item->id}}/edit">{{$item->name}}</a></h2>
-                    <form action="/attributes/{{$item->id}}/delete" method="POST">
+                    <h1><a href="/attribute_values/{{$item->id}}/edit">{{$item->name}}</a></h1>
+                    <form action="/attribute_values/{{$item->id}}/delete" method="post">
                         @csrf
                         <input type="submit" value="Удалить">
                     </form>
                 </div>
             @endforeach
-       @endif
+        @endif
     </body>
 </html>
