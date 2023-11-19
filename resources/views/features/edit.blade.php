@@ -8,6 +8,18 @@
 
     </head>
     <body class="antialiased">
-        
+        <h1>{{$feature->name}}</h1>
+        <form action="/features/{{$feature->id}}/update" method="post">
+            @csrf
+            <div>
+                <div>
+                    <p>name</p>
+                    <input type="text" name="name" placeholder="name" value="{{$feature->name}}">
+                </div>
+                <div>
+                    <input type="submit" value="Update">
+                </div>
+            </div>
+        </form>
     </body>
 </html>

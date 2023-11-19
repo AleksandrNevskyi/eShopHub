@@ -8,6 +8,17 @@
 
     </head>
     <body class="antialiased">
-        
+        <form action="/features/store" method="post">
+            @csrf
+            <div>
+                <div>
+                    <p>name</p>
+                    <input type="text" name="name" placeholder="name">
+                </div>
+                <div>
+                    <input type="submit" value="Create">
+                </div>
+            </div>
+        </form>
     </body>
 </html>
