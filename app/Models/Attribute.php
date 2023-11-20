@@ -16,4 +16,8 @@ class Attribute extends Model
     public function attribute_values(){
         return $this->hasMany(Attribute_value::class);
     }
+
+    public function features(){
+        return $this->belongsToMany(Feature::class);
+    }
 }

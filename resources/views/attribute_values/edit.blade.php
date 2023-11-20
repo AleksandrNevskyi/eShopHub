@@ -13,6 +13,12 @@
             @csrf
             <p>name</p>
             <input type="text" name="name" value="{{$value->name}}" placeholder="name">
+            <p>attribute</p>
+            <select name="attribute">
+                @foreach ($attributes as $item)
+                    <option value="{{$item->id}}">{{$item->name}}</option>
+                @endforeach
+            </select>
             <input type="submit" value="Update  ">
         </form>
     </body>

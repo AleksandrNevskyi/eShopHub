@@ -22,8 +22,10 @@ class Attribute_ValuesController extends Controller
 
     public function edit(string $id){
         $value = Attribute_value::find($id);
+        $attributes = Attribute::all();
         return view('attribute_values.edit', [
-            'value'=> $value
+            'value'=> $value,
+            'attributes' => $attributes
         ]);
     }
 
@@ -33,7 +35,8 @@ class Attribute_ValuesController extends Controller
         ]); 
 
         Attribute_value::find($id)->update([
-            'name' => $req -> name
+            'name' => $req -> name,
+            'attribute_id' => $req -> attribute
         ]);
 
         return redirect('/attribute_values');

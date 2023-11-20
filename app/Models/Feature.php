@@ -12,4 +12,8 @@ class Feature extends Model
     protected $fillable = [
         'name'
     ];
+
+    public function attributes(){
+        return $this->belongsToMany(Attribute::class, 'feature_attribute');
+    }
 }

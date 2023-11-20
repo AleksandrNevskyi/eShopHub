@@ -16,6 +16,15 @@
                     <input type="text" name="name" placeholder="name">
                 </div>
                 <div>
+                    @if ($attributes->count())
+                        <p>attribute</p>
+                        @foreach ($attributes as $item)
+                            <label for="{{$item->name}}">{{$item->name}}</label>
+                            <input type="checkbox" name="feature_attribute[{{ $item->id }}]" id="{{$item->name}}">
+                        @endforeach
+                    @endif
+                </div>
+                <div>
                     <input type="submit" value="Create">
                 </div>
             </div>
