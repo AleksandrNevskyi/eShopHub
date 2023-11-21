@@ -10,7 +10,7 @@
     <body class="antialiased">
         <h1>{{$feature->name}}</h1>
         @foreach ($feature->attributes as $item)
-            <h3>{{$item->name}}</h3>
+            <h3>{{$item->name}}:@foreach ($item->attribute_values as $value) {{$value->name}}, @endforeach</h3>
         @endforeach
         <form action="/features/{{$feature->id}}/update" method="post">
             @csrf

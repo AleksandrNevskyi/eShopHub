@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Item;
 use App\Models\Category;
 use App\Models\Location;
+use App\Models\Feature;
 use Illuminate\Http\RedirectResponse;
 use Carbon\Carbon;
 
@@ -27,14 +28,16 @@ class ItemsController extends Controller
         $item = Item::find($id);
         $cat = Category::find($item->category_id);
         $cats = Category::all();
-	$locations = Location::all();
+	    $locations = Location::all();
+        $features = Feature::all();
 
         // dd($item);
         return view('items.edit', [
             'item' => $item,
             'category' => $cat,
             'categories' => $cats,
-            'locations' => $locations
+            'locations' => $locations,
+            'features' => $features
         ]);
     }
 
@@ -50,15 +53,19 @@ class ItemsController extends Controller
         $item = Item::find($id);
 
         $item->locations()->sync(array_keys($request->item_location));
+
+        $item->features()->sync(array_keys($request->item_feature));
         return redirect('/items');
     }
 
     public function create() {
         $cats = Category::all();
         $locations = Location::all();
+        $features = Feature::all();
         return view('items.create', [
             'categories' => $cats,
-            'locations' => $locations    
+            'locations' => $locations,
+            'features' => $features    
         ]);
     }
 
@@ -72,6 +79,8 @@ class ItemsController extends Controller
         ]);
         // dd($req->item_location);
         $item->locations()->attach(array_keys($req->item_location));
+
+        $item->features()->attach(array_keys($req->item_feature));
 
         return redirect('/items');
     }

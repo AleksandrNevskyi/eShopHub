@@ -22,4 +22,8 @@ class Item extends Model
     public function locations() {
         return $this->belongsToMany(Location::class, 'item_location');
     }
+
+    public function features() {
+        return $this->belongsToMany(Feature::class, 'item_feature');
+    }
 }

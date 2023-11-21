@@ -17,6 +17,11 @@
             <p>{{ $location->title }}</p>
         @endforeach
 
+        <h2>Features</h2>
+        @foreach ($item->features as $feature)
+            <h5>{{$feature->name}}</h5>
+        @endforeach
+
         
         <form action="/items/{{$item->id}}/update" method="post">
             @csrf
@@ -35,7 +40,13 @@
                 @foreach ($locations as $location)
                     <label for="{{$location->id}}">{{$location->title}}</label>
                     <input @if ($item->locations()->pluck('id')->contains($location->id)) checked @endif type="checkbox" name="item_location[{{ $location->id }}]" id="{{$location->id}}">
-                @endforeach 
+                @endforeach
+                
+                <p>features</p>
+                @foreach ($features as $feature)
+                    <label for="{{$feature->id}}">{{$feature->name}}</label>
+                    <input @if ($item->features()->pluck('id')->contains($feature->id)) checked @endif type="checkbox" name="item_feature[{{ $feature->id }}]" id="{{$feature->id}}">
+                @endforeach
             </p>
 
             <input type="submit" value="Изменить">

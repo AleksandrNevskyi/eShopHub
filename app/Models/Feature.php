@@ -16,4 +16,8 @@ class Feature extends Model
     public function attributes(){
         return $this->belongsToMany(Attribute::class, 'feature_attribute');
     }
+
+    public function items(){
+        return $this->belongsToMany(Item::class);
+    }
 }

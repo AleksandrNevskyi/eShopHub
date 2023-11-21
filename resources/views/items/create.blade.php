@@ -18,11 +18,19 @@
                     <option value="{{$item->id}}">{{$item->name}}</option>
                 @endforeach
             </select></p>
-            <p>locations
+            <p>locations</p>
             @if ($locations->count())
                 @foreach ($locations as $item)
                     <label for="{{$item->id}}">{{$item->title}}</label>
                     <input type="checkbox" name="item_location[{{ $item->id }}]" id="{{$item->id}}">
+                @endforeach
+            @endif
+
+            <p>features</p>
+            @if ($features->count())
+                @foreach ($features as $item)
+                    <label for="{{$item->id}}">{{$item->name}}</label>
+                    <input type="checkbox" name="item_feature[{{ $item->id }}]" id="{{$item->id}}">
                 @endforeach
             @endif
 
