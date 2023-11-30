@@ -14,7 +14,7 @@ class Feature extends Model
     ];
 
     public function attributes(){
-        return $this->belongsToMany(Attribute::class, 'feature_attribute');
+        return $this->belongsToMany(Attribute::class, 'feature_attribute')->withPivot('value_id');
     }
 
     public function items(){

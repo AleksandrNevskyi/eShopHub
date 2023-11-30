@@ -13,6 +13,7 @@
             @foreach ($values as $item)
                 <div>
                     <h1><a href="/attribute_values/{{$item->id}}/edit">{{$item->name}}</a></h1>
+                    <h2>{{ $item->attribute->name }}</h2>
                     <form action="/attribute_values/{{$item->id}}/delete" method="post">
                         @csrf
                         <input type="submit" value="Удалить">

@@ -92,6 +92,12 @@ Route::get('/features/create', [FeaturesController::class, 'create']);
 
 Route::post('/features/store', [FeaturesController::class, 'store']);
 
+Route::post('/feature/{id}/add_attr/', [FeaturesController::class, 'add_attr']);
+
+Route::post('/feature/{id}/store_attr', [FeaturesController::class, 'store_attr']);
+
+Route::post("/feature/attr/{id}/delete", [FeaturesController::class, 'destroy_relate']);
+
 //attribute_values
 
 Route::get('/attribute_values', [Attribute_ValuesController::class, 'index']);
