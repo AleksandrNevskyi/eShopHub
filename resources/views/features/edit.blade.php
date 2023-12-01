@@ -13,12 +13,7 @@
             <p>attributes</p>
                 @foreach ($feature->attributes as $item)
                     <h4>{{$item->name}}:</h4><p>{{App\Models\Attribute_value::find($item->pivot->value_id)->name}}</p>
-                    <form action="/feature/attr/{{$item->id}}/delete" method="post">
-                        <div>
-                            <input type="submit" value="Delete">
-                        </div>
-                    </form>
-                @endforeach
+                @endforeach 
             <form action="/feature/{{$feature->id}}/add_attr/" method="post">
                 @csrf
                 <div>

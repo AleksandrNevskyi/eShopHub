@@ -77,8 +77,4 @@ class FeaturesController extends Controller
         ]);
         return redirect('/features');
     }
-
-    // public function destroy_relate(string $id, Request $req){
-        
-    // }
 }
